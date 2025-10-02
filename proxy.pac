@@ -1,27 +1,12 @@
 function FindProxyForURL(url, host) {
     var clientIP = myIpAddress();
 
-    // Resolve hostname to IP if host is not an IP
-    var destIP = host;
-    if (!isInNet(host, "0.0.0.0", "255.255.255.255")) {
-        destIP = dnsResolve(host);
-        if (destIP === null) {
-            // If DNS resolution fails, fallback to direct
-            return "DIRECT";
-        }
-    }
-
     // Always bypass proxy for internal IP ranges
     if (
         isInNet(destIP, "10.0.0.0", "255.0.0.0") ||
         isInNet(destIP, "192.168.0.0", "255.255.0.0") ||
         isInNet(destIP, "172.16.0.0", "255.240.0.0")
     ) {
-        return "DIRECT";
-    }
-
-    // Bypass proxy for simple hostnames (no dots)
-    if (isPlainHostName(host)) {
         return "DIRECT";
     }
 
