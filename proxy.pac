@@ -18,6 +18,7 @@ function FindProxyForURL(url, host) {
         isInNet(clientIP, "10.130.123.0", "255.255.255.0") ||
         isInNet(clientIP, "10.143.32.0", "255.255.255.0") ||
         isInNet(clientIP, "10.130.126.0", "255.255.255.0") ||
+        isInNet(clientIP, "10.151.87.0", "255.255.255.0") ||
         isInNet(clientIP, "10.100.37.0", "255.255.255.0") ||
         isInNet(clientIP, "10.130.103.0", "255.255.255.0")
     ) {
